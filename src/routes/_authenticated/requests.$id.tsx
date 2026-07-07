@@ -84,7 +84,7 @@ function RequestDetail() {
     const ids = Array.from(new Set([req.requester_id, req.accepted_by].filter(Boolean))) as string[];
     if (!ids.length) return;
     supabase.from("public_profiles").select("id,full_name,photo_url,is_verified").in("id", ids).then(({ data }) => {
-      if (data) setProfiles(Object.fromEntries(data.map((p) => [p.id, p as Profile])));
+      if (data) setProfiles(Object.fromEntries(data.map((p: any) => [p.id, p as Profile])));
     });
   }, [req?.requester_id, req?.accepted_by]);
 

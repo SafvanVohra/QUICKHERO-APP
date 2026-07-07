@@ -67,7 +67,7 @@ export function LiveMap({ height = 560 }: { height?: number }) {
     const loadReqs = () =>
       supabase.from("help_requests")
         .select("id,title,category,severity,status,lat,lng,address,created_at,requester_id,accepted_by,resolved_at,updated_at")
-        .in("status", ACTIVE_STATUSES)
+        .in("status", [...ACTIVE_STATUSES])
         .order("created_at", { ascending: false })
         .then(({ data }) => setRequests((data as ReqRow[]) ?? []));
     const loadVols = () =>

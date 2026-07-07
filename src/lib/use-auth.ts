@@ -16,7 +16,9 @@ export function useAuth() {
       setUser(data.session?.user ?? null);
       setLoading(false);
     });
-    return () => sub.subscription.unsubscribe();
+    return () => {
+      sub.subscription.unsubscribe();
+    };
   }, []);
 
   return { session, user, loading };

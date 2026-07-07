@@ -128,7 +128,7 @@ function ProfilePage() {
   });
 
   const initials = (profile?.full_name ?? user?.email ?? "?")
-    .split(/\s+/).map((n) => n[0]).slice(0, 2).join("").toUpperCase();
+    .split(/\s+/).map((n: string) => n[0]).slice(0, 2).join("").toUpperCase();
 
   return (
     <div className="min-h-screen bg-background">
