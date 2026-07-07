@@ -180,20 +180,23 @@ export function Navbar() {
           </Link>
         </div>
 
-        <button
-          className="grid h-11 w-11 place-items-center rounded-full border border-border bg-card shadow-soft transition-all hover:-translate-y-0.5 hover:shadow-elevate md:hidden"
-          onClick={() => setOpen((v) => !v)}
-          aria-label="Toggle menu"
-        >
-          {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-        </button>
+        <div className="flex items-center gap-2 md:hidden">
+          {user && <NotificationsBell />}
+          <button
+            className="grid h-11 w-11 place-items-center rounded-full border border-border bg-card shadow-soft transition-all hover:-translate-y-0.5 hover:shadow-elevate"
+            onClick={() => setOpen((v) => !v)}
+            aria-label="Toggle menu"
+          >
+            {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          </button>
+        </div>
       </div>
 
       {open && (
         <motion.div
           initial={{ opacity: 0, y: -8 }}
           animate={{ opacity: 1, y: 0 }}
-          className="space-y-2 border-t border-border/70 bg-card/98 px-4 py-4 shadow-elevate backdrop-blur-xl md:hidden"
+          className="max-h-[calc(100vh-5rem)] overflow-y-auto space-y-2 border-t border-border/70 bg-card/98 px-4 py-4 shadow-elevate backdrop-blur-xl md:hidden"
         >
           {user && (
             <div className="mb-3 flex items-center gap-3 rounded-2xl bg-gradient-to-r from-primary/10 to-accent/10 p-3">
@@ -224,7 +227,6 @@ export function Navbar() {
           <div className="flex flex-col gap-2 pt-3">
             {user ? (
               <>
-                <NotificationsBell />
                 <Link to="/dashboard" className="w-full">
                   <Button variant="outline" className="w-full rounded-full">
                     <LayoutDashboard className="mr-2 h-4 w-4" /> Dashboard

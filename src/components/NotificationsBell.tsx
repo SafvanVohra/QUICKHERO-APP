@@ -87,7 +87,7 @@ export function NotificationsBell() {
           </AnimatePresence>
         </button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end" className="w-96 p-0 rounded-2xl overflow-hidden">
+      <DropdownMenuContent align="end" className="w-[calc(100vw-2rem)] sm:w-96 p-0 rounded-2xl overflow-hidden">
         <div className="flex items-center justify-between border-b border-border px-4 py-3">
           <div>
             <div className="font-bold">Notifications</div>
