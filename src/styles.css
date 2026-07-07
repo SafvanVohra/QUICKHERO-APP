@@ -140,12 +140,15 @@
   html {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
   }
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
     font-family: var(--font-sans);
     font-feature-settings: "cv11", "ss01";
+    overflow-x: hidden;
+    width: 100%;
   }
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-display);

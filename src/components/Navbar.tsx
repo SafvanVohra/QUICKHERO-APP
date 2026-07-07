@@ -38,6 +38,17 @@ export function Navbar() {
   useEffect(() => { setOpen(false); }, [router.state.location.pathname, router.state.location.hash]);
 
   useEffect(() => {
+    if (open) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [open]);
+
+  useEffect(() => {
     if (!user) { setIsAdmin(false); setProfile(null); return; }
     supabase.from("user_roles").select("role").eq("user_id", user.id).eq("role", "admin").maybeSingle()
       .then(({ data }) => setIsAdmin(!!data));
@@ -196,7 +207,7 @@ export function Navbar() {
         <motion.div
           initial={{ opacity: 0, y: -8 }}
           animate={{ opacity: 1, y: 0 }}
-          className="max-h-[calc(100vh-5rem)] overflow-y-auto space-y-2 border-t border-border/70 bg-card/98 px-4 py-4 shadow-elevate backdrop-blur-xl md:hidden"
+          className="fixed top-[68px] inset-x-0 bottom-0 z-45 overflow-y-auto space-y-4 border-t border-border/70 bg-card/98 px-4 py-6 shadow-elevate backdrop-blur-xl md:hidden"
         >
           {user && (
             <div className="mb-3 flex items-center gap-3 rounded-2xl bg-gradient-to-r from-primary/10 to-accent/10 p-3">
