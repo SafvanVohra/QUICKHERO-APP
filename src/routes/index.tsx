@@ -100,7 +100,7 @@ function Landing() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
           <div className="grid items-center gap-6 sm:gap-12 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,1fr)]">
             {/* Left column: copy + CTA */}
-            <motion.div initial="hidden" animate="show" variants={container} className="order-2 lg:order-1">
+            <motion.div initial="hidden" animate="show" variants={container} className="order-1">
               <motion.div variants={item} className="mb-6 inline-flex items-center gap-2 rounded-full glass px-4 py-1.5 text-xs font-semibold text-primary shadow-soft">
                 <span className="relative flex h-2 w-2">
                   <span className="absolute inline-flex h-full w-full rounded-full bg-success opacity-70 animate-ping" />
@@ -125,6 +125,65 @@ function Landing() {
                 a medical, safety, or rescue emergency — <strong className="font-bold text-foreground">one tap</strong> sends your live
                 location to trained volunteers nearby.
               </motion.p>
+
+              {/* Mobile Hero Art: shown between description and search only on mobile/tablet */}
+              <motion.div
+                variants={item}
+                className="relative my-8 lg:hidden"
+              >
+                <div className="relative aspect-[5/4] sm:aspect-square w-full max-w-[340px] sm:max-w-[480px] mx-auto">
+                  <div className="absolute -inset-6 -z-10 rounded-[3rem] bg-gradient-to-tr from-primary/20 via-accent/10 to-secondary/20 blur-2xl" />
+                  <motion.div
+                    animate={{ y: [0, -8, 0] }}
+                    transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+                    className="relative h-full w-full rounded-[2rem] bg-card p-1.5 shadow-elevate ring-1 ring-white/60"
+                  >
+                    <img
+                      src={heroImg}
+                      alt="Community heroes responding to an emergency"
+                      width={1280} height={1024}
+                      className="h-full w-full rounded-[1.5rem] object-cover"
+                    />
+                  </motion.div>
+
+                  {/* Floating alert card */}
+                  <motion.div
+                    initial={{ x: -20, opacity: 0 }} animate={{ x: 0, opacity: 1 }}
+                    transition={{ delay: 0.6, duration: 0.6 }}
+                    className="absolute -left-2 top-6 hidden sm:block"
+                  >
+                    <div className="glass flex items-center gap-3 rounded-2xl p-2.5 shadow-elevate">
+                      <span className="relative flex h-9 w-9 items-center justify-center rounded-xl bg-danger text-danger-foreground">
+                        <Siren className="h-4.5 w-4.5" strokeWidth={3} />
+                        <span className="absolute inset-0 rounded-xl bg-danger/40 animate-sos" />
+                      </span>
+                      <div>
+                        <div className="text-[11px] font-bold">Medical · 0.4 km</div>
+                        <div className="text-[9px] text-subtext">2 heroes accepted</div>
+                      </div>
+                    </div>
+                  </motion.div>
+
+                  {/* Floating hero card */}
+                  <motion.div
+                    initial={{ x: 20, opacity: 0 }} animate={{ x: 0, opacity: 1 }}
+                    transition={{ delay: 0.8, duration: 0.6 }}
+                    className="absolute -right-2 bottom-12 hidden sm:block"
+                  >
+                    <div className="glass flex items-center gap-3 rounded-2xl p-2.5 shadow-elevate">
+                      <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-primary text-primary-foreground font-bold shadow-primary text-sm">
+                        MD
+                      </div>
+                      <div>
+                        <div className="text-[11px] font-bold">Meera D. · Nurse</div>
+                        <div className="flex items-center gap-1 text-[9px] text-subtext">
+                          <Star className="h-2.5 w-2.5 fill-warning text-warning" /> 4.9 · Arriving in 3m
+                        </div>
+                      </div>
+                    </div>
+                  </motion.div>
+                </div>
+              </motion.div>
 
               <motion.div variants={item} id="request" className="mt-8 sm:mt-10 flex max-w-xl flex-col gap-3 sm:flex-row">
                 <div className="relative flex-1">
@@ -177,7 +236,7 @@ function Landing() {
               initial={{ opacity: 0, scale: 0.98 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
-              className="relative order-1 lg:order-2"
+              className="relative order-2 hidden lg:block"
             >
               <div className="relative aspect-[5/4] sm:aspect-square w-full max-w-[340px] sm:max-w-[560px] mx-auto">
                 <div className="absolute -inset-6 -z-10 rounded-[3rem] bg-gradient-to-tr from-primary/20 via-accent/10 to-secondary/20 blur-2xl" />
