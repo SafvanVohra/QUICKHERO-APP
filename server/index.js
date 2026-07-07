@@ -31,6 +31,7 @@ app.use((req, res, next) => {
 app.use(express.json({ limit: "10mb" }));
 app.use(attachUser);
 app.use("/uploads", express.static(path.resolve(process.cwd(), "server", "uploads")));
+app.use(express.static(path.resolve(process.cwd(), "dist")));
 
 app.get("/api/health", (_req, res) => res.json({ ok: true }));
 app.use("/api/auth", authRoutes);
@@ -38,6 +39,14 @@ app.use("/api/db", dbRoutes);
 app.use("/api/rpc", rpcRoutes);
 app.use("/api/storage", storageRoutes);
 app.use("/api/eta", etaRoutes);
+
+// Catch-all to serve frontend index.html for client-side routing
+app.get("*", (req, res, next) => {
+  if (req.path.startsWith("/api") || req.path.startsWith("/uploads")) {
+    return next();
+  }
+  res.sendFile(path.resolve(process.cwd(), "dist", "index.html"));
+});
 
 app.use((err, _req, res, _next) => {
   console.error("Unhandled server error:", err);
