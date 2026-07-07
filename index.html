@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>QuickHero — One-tap emergency help from nearby volunteers</title>
+    <meta name="description" content="QuickHero sends your live location to trained, ID-verified volunteers nearby with a single tap. Real-time chat, live routes, and community-powered emergency response." />
+
+    <!-- Open Graph / Social -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="QuickHero — One-tap emergency help from nearby volunteers" />
+    <meta property="og:description" content="Send your live location to trained, ID-verified volunteers nearby with one tap. Real-time chat, live routes, and community-powered response." />
+    <meta property="og:url" content="https://quickhero-app.vercel.app/" />
+    <meta property="og:site_name" content="QuickHero" />
+    <meta property="og:image" content="/hero.jpg" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="QuickHero — One-tap emergency help" />
+    <meta name="twitter:description" content="Send your live location to trained, ID-verified volunteers nearby with one tap." />
+    <meta name="twitter:image" content="/hero.jpg" />
+
+    <!-- Theme & PWA -->
+    <meta name="theme-color" content="#e11d48" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="QuickHero" />
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "QuickHero",
+      "url": "https://quickhero-app.vercel.app",
+      "description": "One-tap emergency help from nearby volunteers. Send your live location to trained, ID-verified volunteers with a single tap.",
+      "applicationCategory": "UtilityApplication",
+      "operatingSystem": "Web",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    }
+    </script>
+
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="canonical" href="https://quickhero-app.vercel.app/" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

@@ -1,0 +1,217 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* QuickHero design system — premium, light, community emergency platform */
+
+@theme inline {
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Outfit", "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "Inter", ui-sans-serif, system-ui, sans-serif;
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 20px);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary-glow: var(--primary-glow);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-danger: var(--danger);
+  --color-danger-foreground: var(--danger-foreground);
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
+  --color-destructive: var(--danger);
+  --color-destructive-foreground: var(--danger-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-subtext: var(--subtext);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-ring-offset-background: var(--background);
+}
+
+:root {
+  --radius: 0.875rem;
+
+  /* Coral Rescue palette — warm cream + deep navy + coral + amber */
+  --background: oklch(0.98 0.012 55);            /* #FFF7F2 warm cream */
+  --foreground: oklch(0.24 0.075 265);           /* #0F1B3D deep navy */
+  --subtext: oklch(0.45 0.055 262);              /* muted navy for body */
+
+  --card: oklch(1 0 0);                          /* pure white cards pop on cream */
+  --card-foreground: oklch(0.24 0.075 265);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.24 0.075 265);
+
+  --primary: oklch(0.7 0.19 30);                 /* #FF6B57 coral */
+  --primary-foreground: oklch(1 0 0);
+  --primary-glow: oklch(0.78 0.16 40);           /* lighter coral peach */
+
+  --secondary: oklch(0.32 0.085 265);            /* deep navy secondary */
+  --secondary-foreground: oklch(1 0 0);
+
+  --accent: oklch(0.82 0.15 75);                 /* #F9B44C amber */
+  --accent-foreground: oklch(0.24 0.075 265);
+
+  --success: oklch(0.72 0.16 155);               /* balanced emerald */
+  --success-foreground: oklch(1 0 0);
+  --danger: oklch(0.62 0.24 25);                 /* alert red */
+  --danger-foreground: oklch(1 0 0);
+  --warning: oklch(0.82 0.15 75);                /* matches accent amber */
+  --warning-foreground: oklch(0.24 0.075 265);
+
+  --muted: oklch(0.96 0.015 55);                 /* warm cream-tinted muted */
+  --muted-foreground: oklch(0.45 0.055 262);
+
+  --border: oklch(0.91 0.02 50);                 /* soft warm border */
+  --input: oklch(0.91 0.02 50);
+  --ring: oklch(0.7 0.19 30);                    /* coral focus ring */
+
+  /* Gradients & shadows — coral + amber + navy */
+  --gradient-hero: radial-gradient(1200px 700px at 8% -10%, oklch(0.7 0.19 30 / 0.22), transparent 60%),
+                   radial-gradient(900px 600px at 92% 8%, oklch(0.82 0.15 75 / 0.25), transparent 60%),
+                   radial-gradient(800px 550px at 50% 100%, oklch(0.32 0.085 265 / 0.10), transparent 60%),
+                   linear-gradient(180deg, oklch(0.985 0.012 55) 0%, oklch(0.97 0.02 50) 100%);
+  --gradient-mesh: radial-gradient(600px 400px at 15% 20%, oklch(0.7 0.19 30 / 0.10), transparent 60%),
+                   radial-gradient(500px 350px at 85% 70%, oklch(0.82 0.15 75 / 0.12), transparent 60%);
+  --gradient-primary: linear-gradient(135deg, oklch(0.7 0.19 30), oklch(0.78 0.16 45));
+  --gradient-danger: linear-gradient(135deg, oklch(0.68 0.24 25), oklch(0.72 0.22 12));
+  --gradient-success: linear-gradient(135deg, oklch(0.7 0.18 155), oklch(0.78 0.16 145));
+  --gradient-glass: linear-gradient(135deg, oklch(1 0 0 / 0.78), oklch(1 0 0 / 0.5));
+
+  --shadow-soft: 0 2px 6px -2px oklch(0.24 0.075 265 / 0.06), 0 10px 30px -10px oklch(0.24 0.075 265 / 0.12);
+  --shadow-elevate: 0 6px 16px -6px oklch(0.24 0.075 265 / 0.10), 0 28px 56px -18px oklch(0.24 0.075 265 / 0.22);
+  --shadow-primary: 0 12px 36px -12px oklch(0.7 0.19 30 / 0.55);
+  --shadow-danger: 0 12px 36px -12px oklch(0.65 0.24 25 / 0.55);
+
+  --chart-1: oklch(0.7 0.19 30);
+  --chart-2: oklch(0.82 0.15 75);
+  --chart-3: oklch(0.32 0.085 265);
+  --chart-4: oklch(0.72 0.16 155);
+  --chart-5: oklch(0.62 0.24 25);
+
+  --sidebar: oklch(1 0 0);
+  --sidebar-foreground: oklch(0.24 0.075 265);
+  --sidebar-primary: oklch(0.7 0.19 30);
+  --sidebar-primary-foreground: oklch(1 0 0);
+  --sidebar-accent: oklch(0.96 0.015 55);
+  --sidebar-accent-foreground: oklch(0.24 0.075 265);
+  --sidebar-border: oklch(0.91 0.02 50);
+  --sidebar-ring: oklch(0.7 0.19 30);
+}
+
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    font-feature-settings: "cv11", "ss01";
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+  }
+}
+
+@utility bg-hero {
+  background-image: var(--gradient-hero);
+}
+@utility bg-mesh {
+  background-image: var(--gradient-mesh);
+}
+@utility bg-gradient-primary {
+  background-image: var(--gradient-primary);
+}
+@utility bg-gradient-danger {
+  background-image: var(--gradient-danger);
+}
+@utility bg-gradient-success {
+  background-image: var(--gradient-success);
+}
+
+@utility glass {
+  background: var(--gradient-glass);
+  backdrop-filter: saturate(1.4) blur(14px);
+  -webkit-backdrop-filter: saturate(1.4) blur(14px);
+  border: 1px solid oklch(1 0 0 / 0.6);
+}
+@utility shadow-soft {
+  box-shadow: var(--shadow-soft);
+}
+@utility shadow-elevate {
+  box-shadow: var(--shadow-elevate);
+}
+@utility shadow-primary {
+  box-shadow: var(--shadow-primary);
+}
+@utility shadow-danger {
+  box-shadow: var(--shadow-danger);
+}
+
+/* Pulsing SOS ring */
+@keyframes sos-ping {
+  0%   { transform: scale(1);   opacity: 0.6; }
+  80%  { transform: scale(2.2); opacity: 0;   }
+  100% { transform: scale(2.2); opacity: 0;   }
+}
+@utility animate-sos {
+  animation: sos-ping 1.8s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+/* Slow drifting blobs for hero */
+@keyframes blob-drift {
+  0%,100% { transform: translate(0,0) scale(1); }
+  33%     { transform: translate(30px,-20px) scale(1.06); }
+  66%     { transform: translate(-20px,20px) scale(0.95); }
+}
+@utility animate-blob {
+  animation: blob-drift 14s ease-in-out infinite;
+}
+
+@keyframes float-y {
+  0%,100% { transform: translateY(0); }
+  50%     { transform: translateY(-8px); }
+}
+@utility animate-float {
+  animation: float-y 4s ease-in-out infinite;
+}

@@ -1,0 +1,18 @@
+# QuickHero
+
+> QuickHero connects people in emergencies with verified local volunteers — medical, fire, safety, lost person, and more. One tap sends your live location and alert type to nearby heroes who can respond in minutes.
+
+## Pages
+
+- [/](/): Home — emergency categories, how it works, volunteer stats, and SOS entry.
+- [/auth](/auth): Sign up and log in to QuickHero.
+- [/volunteer](/volunteer): Information and onboarding for becoming a verified volunteer.
+- [/forgot-password](/forgot-password): Reset your password via email.
+- [/reset-password](/reset-password): Complete the password reset flow.
+- [/dashboard](/dashboard): View nearby help requests, accept them, and manage your activity.
+- [/request/new](/request/new): Create a new emergency or help request with location and category.
+- [/requests/:id](/requests/:id): Track an active request, chat with the volunteer, and see live updates.
+- [/notifications](/notifications): Alerts about request status, volunteer assignments, and system messages.
+- [/profile](/profile): Edit your profile, verification status, and account settings.
+- [/verify](/verify): Volunteer identity verification document upload and review status.
+- [/admin](/admin): Admin dashboard for reviewing volunteer verifications and platform metrics.
